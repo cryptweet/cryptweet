@@ -53,7 +53,7 @@ This project started with the idea of a full-web-secure-chat-system, and while t
        current sockets with their own crypto, including the one sending the packet
 - if the contact receives the packet and can decrypt it, he will answer using the same mechanism as for receiving the public key (ACK_PUK_RECEIVED).
 - the user initiating the connection then answers he received the ACK
-- - ToDo: after this handshake, the clients should negociate a common symmetric key for this conversation and agree on a timeout for using the next key. (maybe still keep the old key for a while if a packet got lost)
+- ToDo: after this handshake, the clients should negociate a common symmetric key for this conversation and agree on a timeout for using the next key. (maybe still keep the old key for a while if a packet got lost)
 - when users are in a conversation, they have the ability to invite other contacts to participate to the conversation, by adding the contact's public key to the conversation.
 - ToDo: plugin for offline-messages
 - ToDo: plugin for file sharing
@@ -61,31 +61,31 @@ This project started with the idea of a full-web-secure-chat-system, and while t
 
 ## How you can help
  As this project is completely money-free, 
-  - we can't afford a hosting solution, so we need people/companies to host demo-versions of the system (on HTTPS, to avoid man-in-the-middle attack). The more we are, the more it is secure (still to be proven ;-)
-  - we can't afford a root-certificate, and the security of system relies on the HTTPS-protocol, so we need at least one root-certificate to be able to sign certificates for the domains hosting the demos
+- we can't afford a hosting solution, so we need people/companies to host demo-versions of the system (on HTTPS, to avoid man-in-the-middle attack). The more we are, the more it is secure (still to be proven ;-)
+- we can't afford a root-certificate, and the security of system relies on the HTTPS-protocol, so we need at least one root-certificate to be able to sign certificates for the domains hosting the demos
 
 ## @ToDo:
 
 ### Next functionnalities
-    - First of all, implement a plugin architecture (client- AND server-side) so that new functionnalities (most of the following) can be added without changing the core
-    - Plugin for the server, enabling the possibility of offline messages
-    - Plugin for the client, enabling users to share files
+- First of all, implement a plugin architecture (client- AND server-side) so that new functionnalities (most of the following) can be added without changing the core
+- Plugin for the server, enabling the possibility of offline messages
+- Plugin for the client, enabling users to share files
     
 ### Design
-    - Step-by-step login with show/hide of elements
-    - Theme-Plugin for the UI(jQuery-UI-based) so that users can easily switch theme 
-    - Sound- and Desktop notifications
+- Step-by-step login with show/hide of elements
+- Theme-Plugin for the UI(jQuery-UI-based) so that users can easily switch theme 
+- Sound- and Desktop notifications
     
 ### Network
-    - Implement a relay mechanism so that several server can communicate with each-other, enabling people connected to server A to send packets to servers B, C, and so on.
+- Implement a relay mechanism so that several server can communicate with each-other, enabling people connected to server A to send packets to servers B, C, and so on.
     
 ### Security
-    - Plugin system for cryptography, so that users can easily switch the crypto-lib in use for a session/conversation
-    - Implement a mechanism on the client-side to make sure that the code has not been modified by the person hosting the service (is it possible at all ?) 
-    - Implement conversation's OTR-like-crypto in AES so that participants of a cnversation share the same temporary-key, that changes regularily (doing so, we encrypt only once for all --it is more efficient-- and every n packets, the conversation's key changes, making the decryption of the whole conversation really difficult, aka OTR)
+- Plugin system for cryptography, so that users can easily switch the crypto-lib in use for a session/conversation
+- Implement a mechanism on the client-side to make sure that the code has not been modified by the person hosting the service (is it possible at all ?) 
+- Implement conversation's OTR-like-crypto in AES so that participants of a cnversation share the same temporary-key, that changes regularily (doing so, we encrypt only once for all --it is more efficient-- and every n packets, the conversation's key changes, making the decryption of the whole conversation really difficult, aka OTR)
     
 ### Installation
-    - Script to debbootsrap, intall and configure a server in a chrooted environment 
+- Script to debbootsrap, intall and configure a server in a chrooted environment 
 
 
 
