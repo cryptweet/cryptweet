@@ -1,9 +1,11 @@
 Cryptweet
 =========
 
-Full-web encrypted communication system (server and client)
+Full-web encrypted communication system (server and client). Concepts and technologies used in this project: RSA, AES, Diffie-Hellman (ECDH), Off-The-Recor (OTR), NodeJS, jQuery, HTML5
 
-# Why Cryptweet
+## Why Cryptweet
+
+[*German translation below...*](#user-content-german)
 
 This project started with the idea of a full-web-secure-chat-system, and while there are a lot of interesting solutions out there, I couldn't find anything that meets the following requirements:
 
@@ -26,9 +28,9 @@ This project started with the idea of a full-web-secure-chat-system, and while t
 
    => the Cryptweet server receives only encrypted packets, and sends everything back to everybody (something like bitmessage). Only the one who has the private key can decrypt the packet, and it makes it very difficult for anybody to observe the communication (aka traffic shaping) 
 
-# How it works
+## How it works
 
-## THE SERVER
+### THE SERVER
 
 - should be hosted on HTTPS, with a valid certificate, in order to establish a trusted connection to the client's code (avoid man-in-the-middle changing the client's code)
 - generates a new session private key at startup
@@ -38,7 +40,7 @@ This project started with the idea of a full-web-secure-chat-system, and while t
 - sends each decrypted packet to each client, after having encrypted it again with the client's public key (broadcast)
 - ToDo: plugin for saving offline-messages, using a permanent extra-private key, managed by the plugin
 
-## THE CLIENT
+### THE CLIENT
 
 - manages the contacts and conversations
 - loads or generates the user's private key
@@ -57,39 +59,39 @@ This project started with the idea of a full-web-secure-chat-system, and while t
 - ToDo: plugin for file sharing
 
 
-# How you can help
+## How you can help
  As this project is completely money-free, 
   - we can't afford a hosting solution, so we need people/companies to host demo-versions of the system (on HTTPS, to avoid man-in-the-middle attack). The more we are, the more it is secure (still to be proven ;-)
   - we can't afford a root-certificate, and the security of system relies on the HTTPS-protocol, so we need at least one root-certificate to be able to sign certificates for the domains hosting the demos
 
-# @ToDo:
+## @ToDo:
 
-## Next functionnalities
+### Next functionnalities
     - First of all, implement a plugin architecture (client- AND server-side) so that new functionnalities (most of the following) can be added without changing the core
     - Plugin for the server, enabling the possibility of offline messages
     - Plugin for the client, enabling users to share files
     
-## Design
+### Design
     - Step-by-step login with show/hide of elements
     - Theme-Plugin for the UI(jQuery-UI-based) so that users can easily switch theme 
     - Sound- and Desktop notifications
     
-## Network
+### Network
     - Implement a relay mechanism so that several server can communicate with each-other, enabling people connected to server A to send packets to servers B, C, and so on.
     
-## Security
+### Security
     - Plugin system for cryptography, so that users can easily switch the crypto-lib in use for a session/conversation
     - Implement a mechanism on the client-side to make sure that the code has not been modified by the person hosting the service (is it possible at all ?) 
     - Implement conversation's OTR-like-crypto in AES so that participants of a cnversation share the same temporary-key, that changes regularily (doing so, we encrypt only once for all --it is more efficient-- and every n packets, the conversation's key changes, making the decryption of the whole conversation really difficult, aka OTR)
     
-## Installation
+### Installation
     - Script to debbootsrap, intall and configure a server in a chrooted environment 
 
 
 
 
-##################################### GERMAN ##################################### 
-# Warum Cryptweet 
+# GERMAN
+## Warum Cryptweet 
 Das Projekt begann mit der Idee eines kompletten Web-sicheren-Chat-Systems, und obwohl es eine Menge interessante Lösungen hier draussen gibt, konnte ich nichts finden, was die folgenden Anforderungen erfüllt: 
 
 
@@ -115,7 +117,7 @@ Das Projekt begann mit der Idee eines kompletten Web-sicheren-Chat-Systems, und 
 
 ## Wie es funktioniert
 
-# DER SERVER 
+### DER SERVER 
  - Sollte auf HTTPS gehostet werden, mit einem gültigen Zertifikat, um eine vertrauenswürdige Verbindung zum Code des Clienten herzustellen (man vermeidet ein Man-in-the-Middle, der den Code des Clienten ändern könnte) 
  - Erzeugt eine neue Sitzung mit privatem Schlüssel beim Start 
  - Wartet auf Verbindungen Richtet ein RSA-getunneltes Socket ein mit jedem Clienten, der ein verschlüsseltes gültiges Paket mit einem gültigen öffentlichen RSA-Schlüssel anbietet.
@@ -124,7 +126,7 @@ Das Projekt begann mit der Idee eines kompletten Web-sicheren-Chat-Systems, und 
  - ToDo: Plugin für das Speichern von Offline-Nachrichten, mit Verwendung eines permanenten extra-privaten Schlüssel, der vom Plugin verwaltet wird. 
 
 
-# DER CLIENT 
+### DER CLIENT 
 - Verwaltet die Kontakte und Gespräche 
 - Ladet oder generiert den privaten Schlüssel des Benutzers 
 - Sendet den öffentlichen Schlüssel des Benutzers zu dem Server,
