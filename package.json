@@ -1,0 +1,13 @@
+{
+     "name": "Cryptweet",
+     "private": true,
+     "description": "Encrypted chat application with socket.io",
+     "version": "0.0.1",
+     "dependencies": {
+        "express": "latest",
+        "socket.io": "latest",
+	"jade": "latest",
+	"node-forge": "latest"
+     }
+}
+
