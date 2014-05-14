@@ -1,7 +1,9 @@
 /* GLOBALS FOR FUNCTIONS */
 // Config, feel free to adapt
 // URL of the actual Craptweet service 
-var SERVICE_URL = 'http://192.168.178.125/';
+var SERVICE_URL = 'http://192.168.178.125:80';
+var SERVICE_PORT = '80';
+
 // DEBUG LEVEL
 var DEBUG = 1;
 // TTL of a ping

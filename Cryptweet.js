@@ -9,7 +9,7 @@
  */
 
 // Very first variables
-var VERSION = "0.0.1";
+var VERSION = "0.1";
 
 // First write a line to console 
 // so that the logfile is immediately written
@@ -21,7 +21,7 @@ var fs = require('fs');
 var forge = require('node-forge');
 
 // Set vars
-var port = 3700;
+var port = 80;
 var logged_in_users = [];
 var server_pubkey_pem = false;
 
